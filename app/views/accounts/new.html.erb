@@ -1,6 +1,17 @@
-<h2>Create an Account</h2>
+<div class="col-md-6 col-md-offset-3 panel panel-default">
+  <div class="panel-body">
+    <h2>Create an Account</h2>
 
-<%= form_for @account do |form| %>
-  <p><%= form.text_area :subdomain, placeholder: :"Account name" %></p>
-  <%= form.submit %>
-<% end %>
+    <%= form_for @account do |form| %>
+      <%= form_group_for form, :subdomain do %>
+        <div class="input-group">
+          <p><%= form.text_field :subdomain, 
+            placeholder: :"Subdomain name",
+            class: "form-control" %></p>
+          <span class="input-group-addon">.timetracker.dev</span>
+        </div>
+      <% end %>
+      <%= form.submit class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
