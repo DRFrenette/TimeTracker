@@ -8,7 +8,7 @@ describe "account creation" do
     fill_in "Name", with: "Dan"
     fill_in "Email", with: "Dan.R.Frenette@gmail.com"
     fill_in "Password", with: "pw"
-    fill_in "Password Confirmation", with: "pw"
+    fill_in "Password confirmation", with: "pw"
     fill_in "Subdomain", with: "test_subdomain"
     click_button "Create Account"
 

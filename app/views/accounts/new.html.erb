@@ -3,15 +3,33 @@
     <h2>Create an Account</h2>
 
     <%= form_for @account do |form| %>
-      <%= form_group_for form, :subdomain do %>
-        <div class="input-group">
-          <p><%= form.text_field :subdomain, 
-            placeholder: :"Subdomain name",
-            class: "form-control" %></p>
-          <span class="input-group-addon">.timetracker.dev</span>
-        </div>
+      <%= form.fields_for :owner do |owner| %>
+        <%= form_group_for owner, :name do %>
+          <%= owner.text_field :name, class: "form-control" %>
+        <% end %>
+
+        <%= form_group_for owner, :email do %>
+          <%= owner.email_field :email, class: "form-control" %>
+        <% end %>
+
+        <%= form_group_for owner, :password do %>
+          <%= owner.password_field :password, class: "form-control" %>
+        <% end %>
+
+        <%= form_group_for owner, :password_confirmation do %>
+          <%= owner.password_field :password_confirmation, class: "form-control" %>
+        <% end %>
       <% end %>
-      <%= form.submit class: "btn btn-primary" %>
-    <% end %>
+
+        <%= form_group_for form, :subdomain do %>
+          <div class="input-group">
+            <p><%= form.text_field :subdomain,
+              placeholder: :"Subdomain name",
+              class: "form-control" %></p>
+            <span class="input-group-addon">.timetracker.dev</span>
+          </div>
+        <% end %>
+        <%= form.submit class: "btn btn-primary" %>
+      <% end %>
   </div>
 </div>
